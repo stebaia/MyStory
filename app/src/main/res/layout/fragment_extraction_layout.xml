@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"></TextView>
 
         <Button
+            android:visibility="gone"
             android:id="@+id/btn_next"
             android:text="@string/btn_next"
             android:layout_width="wrap_content"
