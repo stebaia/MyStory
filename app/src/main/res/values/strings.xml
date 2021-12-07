@@ -4,5 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="first_name_extraction">Estrai il primo nome!</string>
+    <string name="second_name_extraction">Estrai il secondo nome!</string>
     <string name="btn_extraction">Estrai!</string>
+    <string name="btn_next">Avanti</string>
 </resources>

@@ -9,8 +9,17 @@
         android:id="@+id/navigation_extraction"
         android:name="com.sbaiardi.mystory.ui.extraction.ExtractionFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_extraction_layout" />
+        tools:layout="@layout/fragment_extraction_layout" >
+        <action
+            android:id="@+id/action_navigation_extraction_to_navigation_second_name"
+            app:destination="@id/navigation_second_name" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/navigation_second_name"
+        android:name="com.sbaiardi.mystory.ui.extraction.SecondNameFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_second_name_layout"/> >
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.sbaiardi.mystory.ui.dashboard.DashboardFragment"
