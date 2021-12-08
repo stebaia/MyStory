@@ -19,13 +19,32 @@
         android:id="@+id/navigation_second_name"
         android:name="com.sbaiardi.mystory.ui.extraction.SecondNameFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_second_name_layout"/> >
+        tools:layout="@layout/fragment_second_name_layout">
+        <action
+            android:id="@+id/action_navigation_second_name_to_navigation_place_extraction"
+            app:destination="@id/navigation_place_extraction" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_result"
+        android:name="com.sbaiardi.mystory.ui.results.ResultFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_result_layout" />
+
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.sbaiardi.mystory.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
+    <fragment
+        android:id="@+id/navigation_place_extraction"
+        android:name="com.sbaiardi.mystory.ui.extraction.PlaceExtractionFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_place_extration_layout" >
+        <action
+            android:id="@+id/action_navigation_place_extraction_to_navigation_result"
+            app:destination="@id/navigation_result" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.sbaiardi.mystory.ui.notifications.NotificationsFragment"

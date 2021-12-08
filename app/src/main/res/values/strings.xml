@@ -3,8 +3,15 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="first_name_extraction">Estrai il primo nome!</string>
-    <string name="second_name_extraction">Estrai il secondo nome!</string>
+    <string name="first_name_extraction">Estrai il primo personaggio!</string>
+    <string name="second_name_extraction">Estrai il secondo personaggio!</string>
+    <string name="place_extraction">Estrai il luogo della tua storia</string>
     <string name="btn_extraction">Estrai!</string>
     <string name="btn_next">Avanti</string>
+    <string name="result_extraction">Risultati Estrazione</string>
+    <string name="first_character">Personaggio uno</string>
+    <string name="second_character">Personaggio due</string>
+    <string name="place_result_text">Dove??</string>
+    <string name="imprevisto">Imprevisto!</string>
+    <string name="suggerimento">Suggerimento!</string>
 </resources>

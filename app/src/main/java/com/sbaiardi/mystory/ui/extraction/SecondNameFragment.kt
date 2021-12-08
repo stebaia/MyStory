@@ -6,10 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import com.sbaiardi.mystory.R
+import com.sbaiardi.mystory.data.Result
 import com.sbaiardi.mystory.databinding.FragmentExtractionLayoutBinding
 import com.sbaiardi.mystory.databinding.FragmentSecondNameLayoutBinding
+import com.sbaiardi.mystory.utils.adapter.TYPE_RESULT
 
-class SecondNameFragment: Fragment() {
+class SecondNameFragment: Fragment(R.layout.fragment_second_name_layout) {
 
     private lateinit var extractionViewModel: ExtractionViewModel
     private var _binding: FragmentSecondNameLayoutBinding? = null
@@ -29,10 +33,18 @@ class SecondNameFragment: Fragment() {
     override fun onStart() {
         super.onStart()
         binding.btnExtraction.setOnClickListener {
-            extractionViewModel.name.observe(viewLifecycleOwner, {
-                binding.txtNameResult.text = it
-            })
+            extractionViewModel.getRandomName()
+            binding.btnExtraction.visibility = View.GONE
             binding.btnNext.visibility = View.VISIBLE
+        }
+        extractionViewModel.name.observe(viewLifecycleOwner, {
+            binding.txtNameResult.text = it.name
+            Result.result_second_character = it
+            Result.resultList.add(Result(it.name, TYPE_RESULT.ESTRAZIONE))
+        })
+        binding.btnNext.setOnClickListener {
+            Navigation.findNavController(binding.root)
+                .navigate(R.id.action_navigation_second_name_to_navigation_place_extraction)
         }
     }
 

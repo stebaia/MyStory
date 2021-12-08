@@ -6,21 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.sbaiardi.mystory.R
 import com.sbaiardi.mystory.data.Result
 import com.sbaiardi.mystory.databinding.FragmentExtractionLayoutBinding
-import com.sbaiardi.mystory.network.NameService
-import com.sbaiardi.mystory.ui.dashboard.DashboardViewModel
+import com.sbaiardi.mystory.databinding.FragmentPlaceExtrationLayoutBinding
 import com.sbaiardi.mystory.utils.adapter.TYPE_RESULT
 
-
-class ExtractionFragment: Fragment(R.layout.fragment_extraction_layout) {
+class PlaceExtractionFragment: Fragment(R.layout.fragment_place_extration_layout) {
     private lateinit var extractionViewModel: ExtractionViewModel
-    private var _binding: FragmentExtractionLayoutBinding? = null
+    private var _binding: FragmentPlaceExtrationLayoutBinding? = null
     // This property is only valid between onCreateView and
 // onDestroyView.
     private val binding get() = _binding!!
@@ -31,7 +26,7 @@ class ExtractionFragment: Fragment(R.layout.fragment_extraction_layout) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentExtractionLayoutBinding.inflate(inflater, container, false)
+        _binding = FragmentPlaceExtrationLayoutBinding.inflate(inflater, container, false)
         extractionViewModel =
             ViewModelProvider(this).get(ExtractionViewModel::class.java)
         return binding.root
@@ -45,18 +40,19 @@ class ExtractionFragment: Fragment(R.layout.fragment_extraction_layout) {
         super.onStart()
 
         binding.btnExtraction.setOnClickListener {
-            extractionViewModel.getRandomName()
+            extractionViewModel.getRandomPlace()
             binding.btnExtraction.visibility = View.GONE
             binding.btnNext.visibility = View.VISIBLE
         }
-        extractionViewModel.name.observe(viewLifecycleOwner, {
-            binding.txtNameResult.text = it.name
-            Result.result_first_character = it
+
+        extractionViewModel.place.observe(viewLifecycleOwner, {
+            binding.txtPlaceResult.text = it.name
+            Result.result_place = it
             Result.resultList.add(Result(it.name, TYPE_RESULT.ESTRAZIONE))
         })
 
         binding.btnNext.setOnClickListener {
-            Navigation.findNavController(binding.root).navigate(R.id.action_navigation_extraction_to_navigation_second_name)
+            Navigation.findNavController(binding.root).navigate(R.id.action_navigation_place_extraction_to_navigation_result)
         }
     }
 
