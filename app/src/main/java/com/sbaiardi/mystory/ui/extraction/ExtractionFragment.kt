@@ -48,11 +48,13 @@ class ExtractionFragment: Fragment(R.layout.fragment_extraction_layout) {
             extractionViewModel.getRandomName()
             binding.btnExtraction.visibility = View.GONE
             binding.btnNext.visibility = View.VISIBLE
+
         }
         extractionViewModel.name.observe(viewLifecycleOwner, {
             binding.txtNameResult.text = it.name
             Result.result_first_character = it
-            Result.resultList.add(Result(it.name, TYPE_RESULT.ESTRAZIONE))
+            binding.txtNameLabel.visibility = View.GONE
+            binding.txtNameResult.text = "Il personaggio estratto è ${it.name}"
         })
 
         binding.btnNext.setOnClickListener {

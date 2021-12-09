@@ -11,7 +11,7 @@
     <string name="result_extraction">Risultati Estrazione</string>
     <string name="first_character">Personaggio uno</string>
     <string name="second_character">Personaggio due</string>
-    <string name="place_result_text">Dove??</string>
+    <string name="place_result_text">Luogo</string>
     <string name="imprevisto">Imprevisto!</string>
-    <string name="suggerimento">Suggerimento!</string>
+    <string name="suggerimento">Consiglio!</string>
 </resources>

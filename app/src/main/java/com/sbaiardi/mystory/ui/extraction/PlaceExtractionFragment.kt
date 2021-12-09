@@ -48,7 +48,8 @@ class PlaceExtractionFragment: Fragment(R.layout.fragment_place_extration_layout
         extractionViewModel.place.observe(viewLifecycleOwner, {
             binding.txtPlaceResult.text = it.name
             Result.result_place = it
-            Result.resultList.add(Result(it.name, TYPE_RESULT.ESTRAZIONE))
+            binding.txtNameLabel.visibility = View.GONE
+            binding.txtPlaceResult.text = "Il luogo estratto è ${it.name}"
         })
 
         binding.btnNext.setOnClickListener {

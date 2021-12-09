@@ -1,34 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@color/teal_700"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_margin="24dp"
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:text="@string/second_name_extraction"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></TextView>
-        <Button
-            android:id="@+id/btn_extraction"
-            android:text="@string/btn_extraction"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-        <TextView
-            android:id="@+id/txt_name_result"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></TextView>
+        <LinearLayout
+            android:animateLayoutChanges="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="24dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <Button
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/txt_name_label"
+                android:textAlignment="center"
+                android:textSize="22dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/arbutus"
+                android:text="@string/second_name_extraction"></TextView>
+            <com.google.android.material.button.MaterialButton
+
+                app:cornerRadius="0dp"
+                android:fontFamily="@font/arbutus"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:id="@+id/btn_extraction"
+                android:text="@string/btn_extraction"
+                android:layout_width="250dp"
+                android:layout_height="70dp"></com.google.android.material.button.MaterialButton>
+            <TextView
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:layout_marginTop="20dp"
+                android:textSize="26dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/arbutus"
+                android:text=""
+                android:layout_gravity="center"
+                android:id="@+id/txt_name_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+
+
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+
+            android:layout_margin="20dp"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            app:cornerRadius="0dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/arbutus"
+            android:layout_gravity="center"
             android:visibility="gone"
             android:id="@+id/btn_next"
             android:text="@string/btn_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_width="250dp"
+            android:layout_height="70dp" />
+    </RelativeLayout>
+
 
 
 </LinearLayout>

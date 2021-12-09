@@ -17,6 +17,7 @@ import com.sbaiardi.mystory.network.NameService
 import com.sbaiardi.mystory.network.WordService
 import com.sbaiardi.mystory.ui.extraction.ExtractionViewModel
 import com.sbaiardi.mystory.utils.adapter.ResultAdapter
+import kotlinx.android.synthetic.main.fragment_result_layout.*
 
 class ResultFragment: Fragment(R.layout.fragment_result_layout) {
 
@@ -53,6 +54,8 @@ class ResultFragment: Fragment(R.layout.fragment_result_layout) {
             false
         )
 
+
+
         binding.recyclerResult.adapter = resultListAdapter
         binding.recyclerResult.layoutManager = layoutManager
         resultViewModel.getListResult()
@@ -63,6 +66,7 @@ class ResultFragment: Fragment(R.layout.fragment_result_layout) {
                 binding.txtPlace.text = Result.result_place.name
                 resultListAdapter.submitList(it)
                 resultListAdapter.notifyDataSetChanged()
+                recycler_result.scrollToPosition(it.size-1)
             }
         })
         binding.btnImprevisto.setOnClickListener {
