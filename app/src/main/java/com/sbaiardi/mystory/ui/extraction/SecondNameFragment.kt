@@ -38,10 +38,10 @@ class SecondNameFragment: Fragment(R.layout.fragment_second_name_layout) {
             binding.btnNext.visibility = View.VISIBLE
         }
         extractionViewModel.name.observe(viewLifecycleOwner, {
-            binding.txtNameResult.text = it.name
+
             Result.result_second_character = it
-            binding.txtNameLabel.visibility = View.GONE
-            binding.txtNameResult.text = "Il personaggio estratto è ${it.name}"
+
+            binding.txtNameLabel.text = "Il personaggio estratto è ${it.name}"
         })
         binding.btnNext.setOnClickListener {
             Navigation.findNavController(binding.root)
