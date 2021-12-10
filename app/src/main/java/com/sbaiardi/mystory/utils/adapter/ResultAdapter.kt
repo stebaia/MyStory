@@ -33,11 +33,11 @@ class ResultAdapter(private val onClick: (Result) -> Unit): ListAdapter<Result, 
                 }
                 TYPE_RESULT.IMPREVISTO -> {
                     txtTypeResult.text = "Imprevisto!"
-                    relativeBackground.setBackgroundResource(R.color.purple_700)
+                    relativeBackground.setBackgroundResource(R.color.dark_red)
                 }
                 TYPE_RESULT.SUGGERIMENTO -> {
                     txtTypeResult.text = "Suggerimento!"
-                    relativeBackground.setBackgroundResource(R.color.purple_200)
+                    relativeBackground.setBackgroundResource(R.color.yellow_gold)
                 }
             }
         }

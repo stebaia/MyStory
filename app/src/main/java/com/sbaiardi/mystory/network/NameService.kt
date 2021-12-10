@@ -27,7 +27,7 @@ class NameService {
             }else
                 Character("Hebri", is_chosen = true, is_used = false)
         }
-        fun killCharacter() {
+        fun killCharacter(): String {
             val oldCharacter = characterList.find { it.is_chosen && !it.is_used }
             if (oldCharacter != null) {
                 oldCharacter.is_used = true
@@ -41,7 +41,9 @@ class NameService {
                 }
                 Result.resultList.add(Result("E' morto ${oldCharacter.name}!",TYPE_RESULT.IMPREVISTO))
                 Result.resultList.add(Result("Il nuovo personaggio è ${newCharacter.name}", TYPE_RESULT.IMPREVISTO))
+                return "E' morto ${oldCharacter.name}! \n Il nuovo personaggio è ${newCharacter.name}"
             }
+            return "fine"
         }
     }
 }

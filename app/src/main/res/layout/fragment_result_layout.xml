@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@color/teal_700"
+    android:background="@color/dark_grey"
     android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:layout_height="match_parent">
         <LinearLayout
             android:padding="10dp"
-            android:background="@color/blue"
+            android:background="@color/grey"
             android:layout_marginTop="20dp"
             android:weightSum="2"
             android:layout_width="match_parent"
@@ -73,7 +73,7 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:background="@color/blue"
+            android:background="@color/grey"
             android:padding="10dp"
             android:layout_margin="20dp"
             android:orientation="vertical"
@@ -115,6 +115,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <com.google.android.material.button.MaterialButton
+                android:backgroundTint="@color/dark_red"
                 app:cornerRadius="0dp"
                 android:layout_margin="10dp"
                 android:textSize="12dp"
@@ -126,6 +127,7 @@
                 android:layout_width="0dp"
                 android:layout_height="60dp"></com.google.android.material.button.MaterialButton>
             <com.google.android.material.button.MaterialButton
+                android:backgroundTint="@color/yellow_gold"
                 app:cornerRadius="0dp"
                 android:layout_margin="10dp"
                 android:textSize="12dp"

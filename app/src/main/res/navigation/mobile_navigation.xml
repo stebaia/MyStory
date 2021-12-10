@@ -29,13 +29,17 @@
         android:id="@+id/navigation_result"
         android:name="com.sbaiardi.mystory.ui.results.ResultFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_result_layout" />
+        tools:layout="@layout/fragment_result_layout" >
+        <action
+            android:id="@+id/action_navigation_result_to_navigation_dialog"
+            app:destination="@id/navigation_dialog" />
+    </fragment>
+    <dialog android:id="@+id/navigation_dialog"
+        android:name="com.sbaiardi.mystory.ui.dialog.EventDialog"
+        tools:layout="@layout/dialog_event_layout">
 
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.sbaiardi.mystory.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+    </dialog>
+
     <fragment
         android:id="@+id/navigation_place_extraction"
         android:name="com.sbaiardi.mystory.ui.extraction.PlaceExtractionFragment"
@@ -45,9 +49,4 @@
             android:id="@+id/action_navigation_place_extraction_to_navigation_result"
             app:destination="@id/navigation_result" />
     </fragment>
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.sbaiardi.mystory.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>

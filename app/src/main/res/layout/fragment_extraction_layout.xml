@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:background="@color/teal_700"
+    android:background="@color/dark_grey"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="match_parent">
@@ -26,7 +26,7 @@
                 android:fontFamily="@font/arbutus"
                 android:text="@string/first_name_extraction"></TextView>
             <com.google.android.material.button.MaterialButton
-
+                android:backgroundTint="@color/orange"
                 app:cornerRadius="0dp"
                 android:fontFamily="@font/arbutus"
                 android:layout_gravity="center"
@@ -51,7 +51,7 @@
 
         </LinearLayout>
         <com.google.android.material.button.MaterialButton
-
+            android:backgroundTint="@color/orange"
             android:layout_margin="20dp"
             android:layout_centerInParent="true"
             android:layout_alignParentBottom="true"

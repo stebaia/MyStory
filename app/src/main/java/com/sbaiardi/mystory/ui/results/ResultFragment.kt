@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -17,7 +18,12 @@ import com.sbaiardi.mystory.network.NameService
 import com.sbaiardi.mystory.network.WordService
 import com.sbaiardi.mystory.ui.extraction.ExtractionViewModel
 import com.sbaiardi.mystory.utils.adapter.ResultAdapter
+import com.sbaiardi.mystory.utils.adapter.TYPE_RESULT
 import kotlinx.android.synthetic.main.fragment_result_layout.*
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class ResultFragment: Fragment(R.layout.fragment_result_layout) {
 
@@ -61,22 +67,40 @@ class ResultFragment: Fragment(R.layout.fragment_result_layout) {
         resultViewModel.getListResult()
         resultViewModel.results.observe(viewLifecycleOwner, {
             it.let {
-                binding.txtFirstCharacter.text = Result.result_first_character.name
-                binding.txtSecondCharacter.text = Result.result_second_character.name
-                binding.txtPlace.text = Result.result_place.name
-                resultListAdapter.submitList(it)
-                resultListAdapter.notifyDataSetChanged()
-                recycler_result.scrollToPosition(it.size-1)
+
+
+                        binding.txtFirstCharacter.text = Result.result_first_character.name
+                        binding.txtSecondCharacter.text = Result.result_second_character.name
+                        binding.txtPlace.text = Result.result_place.name
+                        resultListAdapter.submitList(it)
+                        resultListAdapter.notifyDataSetChanged()
+                        recycler_result.scrollToPosition(it.size-1)
+                        println("and it seems to work!")
+
+
+
             }
         })
         binding.btnImprevisto.setOnClickListener {
-            NameService.killCharacter()
+            val event = NameService.killCharacter()
+            val bundle = bundleOf(
+                "type_result" to TYPE_RESULT.IMPREVISTO.name,
+                "event" to event
+            )
+            Navigation.findNavController(binding.root).navigate(R.id.action_navigation_result_to_navigation_dialog, bundle)
+
             resultViewModel.getListResult()
         }
 
         binding.btnSuggerimento.setOnClickListener {
-            WordService.randomChoose()
+            val event = WordService.randomChoose()
+            val bundle = bundleOf(
+                "type_result" to TYPE_RESULT.SUGGERIMENTO.name,
+                "event" to event.name
+            )
+            Navigation.findNavController(binding.root).navigate(R.id.action_navigation_result_to_navigation_dialog, bundle)
             resultViewModel.getListResult()
+
         }
     }
 
