@@ -67,8 +67,6 @@ class ResultFragment: Fragment(R.layout.fragment_result_layout) {
         resultViewModel.getListResult()
         resultViewModel.results.observe(viewLifecycleOwner, {
             it.let {
-
-
                         binding.txtFirstCharacter.text = Result.result_first_character.name
                         binding.txtSecondCharacter.text = Result.result_second_character.name
                         binding.txtPlace.text = Result.result_place.name
@@ -76,9 +74,6 @@ class ResultFragment: Fragment(R.layout.fragment_result_layout) {
                         resultListAdapter.notifyDataSetChanged()
                         recycler_result.scrollToPosition(it.size-1)
                         println("and it seems to work!")
-
-
-
             }
         })
         binding.btnImprevisto.setOnClickListener {

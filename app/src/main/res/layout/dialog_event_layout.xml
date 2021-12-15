@@ -54,6 +54,7 @@
                 android:layout_height="wrap_content" />
 
             <com.google.android.material.button.MaterialButton
+                android:textColor="@color/white"
                 android:id="@+id/btn_dismiss"
                 android:fontFamily="@font/arbutus"
                 android:text="ok"

@@ -17,6 +17,21 @@ class NameService {
             Character("Peru", is_chosen = false, is_used = false),
             Character("Eli", is_chosen = false, is_used = false),
         )
+        val actionList = mutableListOf(
+            "è morto!",
+            "è fuggito in messico!",
+            "vuole uscire da questa storia",
+            "si è andato a fare un panino",
+            "ha scoreggiato troppo forte e è esploso",
+            "è andato a cagare",
+            "è andato a studiare per gli esami del sangue",
+            "deve sostituire un suo collega spazzino",
+            "è andato a pulire lo sbocco della festeggiata della scorsa laurea",
+            "è andato a pulire la nuova casa di Simo",
+            "starnutendo ha fatto il richiamo per i piccioni e ora è coperto di guano",
+            "deve allacciare le scarpe al suo nuovo millepiedi"
+
+        )
         fun randomChoose(): Character{
             val tmpList = characterList.filter { !it.is_chosen && !it.is_used }
             return if (tmpList.isNotEmpty()){
@@ -39,11 +54,18 @@ class NameService {
                 }else if (oldCharacter.name == Result.result_second_character.name){
                     Result.result_second_character = newCharacter
                 }
-                Result.resultList.add(Result("E' morto ${oldCharacter.name}!",TYPE_RESULT.IMPREVISTO))
+                val action = randomExit(oldCharacter.name)
+                Result.resultList.add(Result(action,TYPE_RESULT.IMPREVISTO))
                 Result.resultList.add(Result("Il nuovo personaggio è ${newCharacter.name}", TYPE_RESULT.IMPREVISTO))
-                return "E' morto ${oldCharacter.name}! \n Il nuovo personaggio è ${newCharacter.name}"
+                return "$action \n Il nuovo personaggio è ${newCharacter.name}"
             }
             return "fine"
+        }
+
+        private fun randomExit(name: String): String{
+            val randomIndex = Random.nextInt(actionList.size)
+            val randomElement = actionList[randomIndex]
+            return "$name $randomElement"
         }
     }
 }
